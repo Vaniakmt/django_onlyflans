@@ -1,6 +1,43 @@
 {% extends 'base.html' %}
-<html>
-    <body>
-        bienvenido
-    </body>
-</html>
+{% load static %}
+{% block 'content' %}
+
+<div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'eclair.jpg' %}" class="d-block w-100 mx-auto" style="height: 700px;" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'flan.jpg' %}" class="d-block w-100 mx-auto" style="height: 700px;" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'cake.jpg' %}" class="d-block w-100 mx-auto" style="height: 700px;" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <hr>
+ <!--  cards-productos -->
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 g-4" >
+        {% for flan in flanes_pub %}
+        <div class="col">
+            <div class="card">
+                <img src="{{ flan.image_url }}" class="card-img-top" alt="..."  style="height: 355px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ flan.name }}</h5>
+                    <p class="card-text">{{flan.description}}</p>
+                </div>
+            </div>   
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

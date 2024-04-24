@@ -1,6 +1,21 @@
 {% extends 'base.html' %}
-<html>
-    <body>
-        Bienvenido cliente
-    </body>
-</html>
+{% load static %}
+{% block 'content' %}
+
+ <!--  cards-productos -->
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 g-4" >
+        {% for flan in flanes_pub %}
+        <div class="col">
+            <div class="card">
+                <img src="{{ flan.image_url }}" class="card-img-top" alt="..." style="height: 355px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ flan.name }}</h5>
+                    <p class="card-text">{{flan.description}}</p>
+                </div>
+            </div>   
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
