@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.urls import reverse
 from .models import ContactForm, Flan
 from .forms import ContactFormForm
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -21,9 +23,15 @@ def contact(request):
     if request.method == "POST":
         form = ContactFormForm(request.POST)
         if form.is_valid():
+            # Crear y guardar el objeto ContactForm
             contact_form = ContactForm.objects.create(**form.cleaned_data)
-
-            return HttpResponseRedirect("/")
+            # Redireccionar a exito.html
+            return HttpResponseRedirect("exito")
     else:
-        form = ContactFormForm
-    return render(request, "contact.html",{"form": form})
+        form = ContactFormForm()
+    return render(request, "contact.html", {"form": form})
+
+def exito(request):
+    return render(request, 'exito.html')
+
+
