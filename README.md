@@ -21,3 +21,32 @@ Este proyecto consiste en la creación de un sitio web para una pequeña empresa
 - Manejando perfiles con Django: Implementación de inicio y cierre de sesión, y protección de vistas para hacerlas inaccesibles por usuarios no autenticados.
 - Presentación del proyecto: Demostración del código funcional desarrollado en los hitos anteriores y explicación de distintas particularidades del proyecto.
 
+## Instalacion
+
+Requisitos previos
+- Python >= 3.x
+- Pip (administrador de paquetes de Python)
+## Pasos de instalación
+- Clona este repositorio en tu máquina local:
+```bash
+    git clone https://github.com/Vaniakmt/django_onlyflans.git
+
+```
+- Navega al directorio del proyecto:
+```bash
+    cd my-project
+```
+- Crea y activa un entorno virtual (se recomienda pero no es obligatorio):
+```bash
+    python -m venv venv
+    source venv/bin/activate 
+```
+- En sistemas  Windows
+```
+venv\Scripts\activate 
+pip install -r requirements.txt
+```
+
+
+
+
